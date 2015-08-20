@@ -31,13 +31,9 @@ def menu(saved=False):
     return menu
 
 
-def output_string(j):
-    return "{0:>6}    {1:>2}    {2:>7.3f}\n"
-
-
 def output(j, n, avg):
     if j in (1, 2, 3, 4, 5, 10, 25, 50, 100, 1000, 10000):
-        out = output_string(j).format(j, n, avg)
+        out = "{0:>6}    {1:>2}    {2:>7.3f}\n".format(j, n, avg)
         return out
     return None
 
