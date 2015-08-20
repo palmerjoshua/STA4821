@@ -3,8 +3,8 @@ Joshua Palmer   Z23280034
 STA   4821      MWF 1:00 - 1:50
 Homework 1      August 24, 2015
 
-Note: Simulation function on line 66.
-      Main function on line 82.
+Note: Simulation function on line 62.
+      Main function on line 78.
 """
 
 import random
