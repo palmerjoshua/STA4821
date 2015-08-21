@@ -13,13 +13,13 @@ import random
 def header():
     h = "Joshua Palmer    Z23280034\n" \
         "STA   4821       MWF 1:00 - 1:50\n" \
-        "Homework 1       August 24, 2015\n"
+        "Homework 1       August 24, 2015"
     return h
 
 
 def table_header():
     header = "      j    n        avg\n" \
-             "  -----   --    -------\n"
+             "  -----   --    -------"
     return header
 
 
@@ -45,9 +45,9 @@ def show_menu(output_strings, saved=False):
         user_input = input(menu(saved)).lower()
         if user_input.lower().rstrip() == 's' and not saved:
             with open('hw1_output.txt', "w") as ofile:
-                ofile.write("{}\n{}".format(header(), table_header()))
+                ofile.write("{}\n{}\n".format(header(), table_header()))
                 ofile.writelines(output_strings)
-            print("Done writing.")
+            print("Saved to hw1_output.txt")
         elif user_input.lower().rstrip() == 'r':
             pass
         elif user_input.lower() == 'q':
@@ -60,7 +60,7 @@ def show_menu(output_strings, saved=False):
 
 
 def simulate():
-    print(table_header().rstrip())
+    print(table_header())
     output_strings = []
     m = 0
     for j in range(1, 10001):
