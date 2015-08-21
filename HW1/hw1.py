@@ -38,7 +38,7 @@ def output(j, n, avg):
     return None
 
 
-def show_menu(output_strings, saved=False):
+def show_menu(output_strings=None, saved=False):
     user_input = None
     menu_choices = ('q', 'r') if saved else ('q', 'r', 's')
     while user_input not in menu_choices:
@@ -81,7 +81,7 @@ def main():
         output_strings = simulate()
         user_input = show_menu(output_strings)
         if user_input == 's':
-            user_input = show_menu(output_strings, saved=True)
+            user_input = show_menu(saved=True)
 
 
 if __name__ == '__main__':
