@@ -37,9 +37,9 @@ def output(j, n, avg):
         return out
     return None
 
-# todo remove 'TEST' from file name
+
 def save_to_file(output_strings):
-    with open('hw1_outputTEST.txt', "w") as out_file:
+    with open('hw1_output.txt', "w") as out_file:
         out_file.write("{}\n{}\n".format(header(), table_header()))
         out_file.writelines(output_strings)
 
