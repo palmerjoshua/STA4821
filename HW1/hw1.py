@@ -3,8 +3,8 @@ Joshua Palmer   Z23280034
 STA   4821      MWF 1:00 - 1:50
 Homework 1      August 24, 2015
 
-Note: Simulation function on line 62.
-      Main function on line 78.
+Note: Simulation function on line 66.
+      Main function on line 82.
 """
 
 import random
@@ -37,21 +37,25 @@ def output(j, n, avg):
         return out
     return None
 
+# todo remove 'TEST' from file name
+def save_to_file(output_strings):
+    with open('hw1_outputTEST.txt', "w") as out_file:
+        out_file.write("{}\n{}\n".format(header(), table_header()))
+        out_file.writelines(output_strings)
+
 
 def show_menu(output_strings=None, saved=False):
     user_input = None
     menu_choices = ('q', 'r') if saved else ('q', 'r', 's')
     while user_input not in menu_choices:
-        user_input = input(menu(saved)).lower()
-        if user_input.lower().rstrip() == 's' and not saved:
-            with open('hw1_output.txt', "w") as ofile:
-                ofile.write("{}\n{}\n".format(header(), table_header()))
-                ofile.writelines(output_strings)
-            print("Saved to hw1_output.txt")
-        elif user_input.lower().rstrip() == 'r':
-            pass
-        elif user_input.lower() == 'q':
+        user_input = input(menu(saved)).lower().rstrip()
+        if user_input == 'q':
             print("Goodbye.")
+        elif user_input == 'r':
+            pass
+        elif user_input == 's' and not saved:
+            save_to_file(output_strings)
+            print("Saved to hw1_output.txt")
         else:
             choices = ', '.join(menu_choices[:-1])
             choices = "{}, or {}".format(choices, menu_choices[-1])
