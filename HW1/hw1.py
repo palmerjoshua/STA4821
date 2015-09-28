@@ -26,8 +26,7 @@ def table_header():
 
 def output(j, n, avg):
     if j in (1, 2, 3, 4, 5, 10, 25, 50, 100, 1000, 10000):
-        out = output_string(j).format(j, n, avg)
-        return out
+        return output_string(j).format(j, n, avg)
     return None
 
 
