@@ -1,7 +1,11 @@
+"""
+Simulates 200 coin flips, and
+prints the results to a file.
+"""
 import random
 
 
-def generate_header():
+def get_header():
     return """Joshua Palmer    Z: 23280034
 STA 4821 001
 200 coin flips
@@ -11,17 +15,21 @@ STA 4821 001
 
 
 def get_face():
-    return 'tails' if random.randint(0, 1) % 2 else 'heads'
+    return 'X' if random.randint(0, 1) % 2 else 'O'
 
 
-def get_formatted_face(i):
-    return "{}. {}\n".format(i, get_face())
+def get_flip_line():
+    return " ".join(get_face() for i in range(20)) + "\n"
+
+
+def get_faces():
+    return ["{:2}. ".format(i+1) + get_flip_line() for i in range(10)]
 
 
 def main():
-    faces = [get_formatted_face(i) for i in range(1, 201)]
+    faces = get_faces()
     with open("coinflips.txt", "w") as ofile:
-        ofile.write(generate_header())
+        ofile.write(get_header())
         ofile.writelines(faces)
 
 
