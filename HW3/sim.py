@@ -44,11 +44,10 @@ def generate_x(case_number):
     else:
         raise BadCaseNumberException("Case number should be 1-4. Input: {}".format(case_number))
 
-
-def main():
+def run(case_number):
     sum1 = sum2 = c = 0
     for i in range(10000):
-        x = generate_x(1)
+        x = generate_x(case_number)
         sum1 += x
         sum2 += x**2
         if A < x <= B:
@@ -56,7 +55,26 @@ def main():
     moment = sum1/10000
     variance = (sum2/10000) - (sum1/10000)**2
     p_a_x_b = c/10000
-    print("{:.5f}    {:.5f}    {:.5f}".format(moment, variance, p_a_x_b))
+    print("Case {}: {:.5f}    {:.5f}    {:.5f}".format(case_number, moment, variance, p_a_x_b))
+
+
+def second_table_range():
+    j = -0.25
+    my_range = []
+    for i in range(9):
+        my_range.append(j)
+        j += 0.25
+    return my_range
+
+
+def main():
+    print("        Moment     Variance   P(a<x<=b)")
+    for i in range(1, 5):
+        run(i)
+    print()
+    print("Case 1 distribution:")
+    for i in second_table_range():
+        print("Fx({:.2f}) = {:.2f}".format(i, case1_Fx(i)))
 
 if __name__ == '__main__':
     main()
